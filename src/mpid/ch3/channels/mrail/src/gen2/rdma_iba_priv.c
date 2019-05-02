@@ -790,10 +790,6 @@ int rdma_open_hca(struct mv2_MPIDI_CH3I_RDMA_Process_t *proc)
         }
 
         if (!ib_dev) {
-            /* Clean up before exit */
-            if (dev_list) {
-                ibv_free_device_list(dev_list);
-            }
             MPIR_ERR_SETFATALANDJUMP1(mpi_errno, MPI_ERR_OTHER, "**fail",
                                       "**fail %s", "No IB device found");
         }
