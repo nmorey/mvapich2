@@ -742,6 +742,8 @@ int UPMI_GET_LOCAL_RANK(int rank, int *size) {
     }
     *size= val->data.uint16;
     return convert_err(rc);
+    #else
+	return 0;
     #endif
 }
 
@@ -760,6 +762,8 @@ int UPMI_GET_LOCAL_SIZE(int *size) {
     }
     *size= val->data.uint32;
     return convert_err(rc);
+    #else
+	return 0;
     #endif
 }
 
@@ -778,5 +782,7 @@ int UPMI_GET_LOWEST_RANK(int *rank) {
     }
     *rank= val->data.uint32;
     return convert_err(rc);
+    #else
+	return 0;
     #endif
 }
