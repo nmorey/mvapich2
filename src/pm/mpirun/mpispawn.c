@@ -800,7 +800,7 @@ void child_handler(int signal)
     gethostname(my_host_name, MAX_HOST_LEN);
 
     rank = mt_id;
-    PRINT_DEBUG(DEBUG_Fork_verbose, "mpispawn child_handler: got signal %d: %s\n", signal, sys_siglist[signal]);
+    PRINT_DEBUG(DEBUG_Fork_verbose, "mpispawn child_handler: got signal %d: %s\n", signal, strsignal(signal));
     while (1) {
         do {
             pid = waitpid(-1, &status, WNOHANG);

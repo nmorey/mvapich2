@@ -69,7 +69,7 @@ int show_backtrace = 0;
 // Signal handler for errors
 void error_sighandler(int sig, siginfo_t *info, void *secret) {
     // Always print error
-    PRINT_ERROR( "Caught error: %s (signal %d)\n", sys_siglist[sig], sig );
+    PRINT_ERROR( "Caught error: %s (signal %d)\n", strsignal(sig), sig );
     // Show backtrace if required
     if (show_backtrace) print_backtrace();
     // Raise the signal again with default handler
